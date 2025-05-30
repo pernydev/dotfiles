@@ -1,0 +1,36 @@
+# Global properties
+separator=true
+separator_block_width=14
+markup=none
+command=/home/$USER/.config/i3blocks/$BLOCK_NAME
+
+[arch-version]
+command=echo " - $(uname -r)"
+color=#e79650
+interval=once
+
+[ssid.sh]
+full_text=" - Detecting..."
+color=#30c765
+interval=5
+
+[audio.sh]
+interval=once
+signal=10
+color=#ac77f4
+
+[date]
+command=printf "$(date '+%B %d, %Y')\n$(date '+%m-%d-%Y')\n"
+interval=60
+
+[time]
+# Without seconds:
+#command=printf "$(date '+%l:%M %p')\n$(date '+%1:%M %p')\n"
+command=printf "$(date '+%l:%M %p (%S)')\n$(date '+%1:%M %p')\n"
+interval=1
+
+#[power]
+#full_text=" "
+#command=shutdown now
+#interval=0
+#color=#00FF00
