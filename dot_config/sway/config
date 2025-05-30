@@ -213,6 +213,9 @@ bindsym $mod+r mode "resize"
     # Special key to take a screenshot with grim
     bindsym Print exec grim
 
+
+include /home/perny/.config/sway/theme
+
 #
 # Status Bar:
 #
@@ -225,10 +228,28 @@ bar {
     status_command i3blocks
 
     colors {
-        statusline #ffffff
-        background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
+    background         $base
+    statusline         $text
+    focused_statusline $text
+    focused_separator  $base
+
+    # target           border bg        text
+    focused_workspace  $base  $mauve    $crust
+    active_workspace   $base  $surface2 $text
+    inactive_workspace $base  $base     $text
+    urgent_workspace   $base  $red      $crust
     }
 }
 
 include /etc/sway/config.d/*
+
+
+
+# target                 title     bg    text   indicator  border
+client.focused           $lavender $base $text  $rosewater $lavender
+client.focused_inactive  $overlay0 $base $text  $rosewater $overlay0
+client.unfocused         $overlay0 $base $text  $rosewater $overlay0
+client.urgent            $peach    $base $peach $overlay0  $peach
+client.placeholder       $overlay0 $base $text  $overlay0  $overlay0
+client.background        $base
+
